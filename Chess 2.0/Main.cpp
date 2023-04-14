@@ -1,9 +1,17 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <unordered_map>
+#include "Piece.h"
+#include "Board.h"
+
+using namespace std;
+
+void getDefaultPieces(unordered_map<string, Piece> &pieces);
 
 char MAX_UNICODE = 128;
 
 int main() {
+    /*
     sf::RenderWindow window(sf::VideoMode(512, 512), "Chess", sf::Style::Close | sf::Style::Resize); //Window size, name, style
     sf::RectangleShape player(sf::Vector2f(100.0f, 100.0f));
     player.setFillColor(sf::Color::Cyan);
@@ -51,6 +59,23 @@ int main() {
         window.draw(player);
         window.display();
     }
+    */
+    unordered_map<string, Piece> pieces = {};
+    getDefaultPieces(pieces);
+    Board board(8, 8);
+
+    while (true) {
+
+    }
     
     return 0;
+}
+
+void getDefaultPieces(unordered_map<string, Piece> &pieces) {
+    Piece pond(false, false, false, 0, 1);
+    pieces.insert(make_pair("pond", pond));
+}
+
+void printBoard() {
+
 }
